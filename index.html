@@ -1,96 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cryptic Digital Book</title>
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: monospace;
-  }
-  .book {
-    width: 56.25vh; /* 9:16 aspect ratio */
-    height: 100vh;
-    border: 5px solid #000;
-    box-sizing: border-box;
-    padding: 2vh;
-    background: #fff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  h1 {
-    font-size: 3vh;
-    text-align: center;
-    margin-bottom: 1vh;
-  }
-  pre {
-    font-size: 0.9vh; /* smaller text to fit everything */
-    line-height: 1.1vh;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: hidden;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows XP Popup (Final Place)</title>
+  <style>
+    :root{ --bg-url: url('https://iili.io/Ki6TNQR.png'); }
+    html,body{
+      height:100%;margin:0;
+      background-image:var(--bg-url);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+      user-select:none;
+      font-family:Tahoma, sans-serif;
+      touch-action:none;
+    }
+    .popup{
+      width:420px;
+      background:#ece9d8;
+      border:2px solid #003399;
+      border-radius:4px;
+      box-shadow:4px 4px 10px rgba(0,0,0,0.5);
+      position:absolute;
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      touch-action:none;
+    }
+    .titlebar{
+      height:28px;
+      background:linear-gradient(#0054e3,#0036a3);
+      color:white;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 8px;
+      cursor:grab;
+      border-top-left-radius:2px;
+      border-top-right-radius:2px;
+      touch-action:none;
+    }
+    .titlebar:active{cursor:grabbing;}
+    .close-btn{
+      width:20px;height:20px;background:#c33;color:white;
+      text-align:center;line-height:18px;font-weight:bold;
+      border-radius:2px;font-family:Arial, sans-serif;font-size:14px;
+      cursor:pointer;
+    }
+    .close-btn:hover{background:#e55;}
+    .content{
+      padding:16px;
+      color:black;
+      font-size:14px;
+      line-height:1.4em;
+      text-align:center;
+    }
+    .content img{
+      max-width:100%;
+      border-radius:6px;
+      margin-top:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 <body>
-  <div class="book">
-    <h1>𝖀Ѷꉕ ∱ꑇӪꉕ ∲ӫ ꃼ∳ꉕ𝖃ꌇ𝕿𝖀ꑇ₯฿ꉕ</h1>
-    <pre>
-𝖀Ѷꉕ ꑇ฿∱Ѷꑇꐕꉕ𝖀ꌇꑇ฿ ฿ꉕ𝖃ꃼꌇ∲∳ 𝖁ꉕ∯𝕾ꉕ𝖁 ꑇ𝖁 ꑇ ∱∯∲ӫ∲∳ ௹ꉕꌈꃼ௹ ӫ∲∯ ꑇ∯𝖀ꃼꕿ฿ꑇ𝖀ꃼ∳ 𝖀Ѷꉕ ꉕ∱Ѷꉕ௹ꑇ฿ ꉕ𝖃ꃼ𝖁𝖀ꉕ∳ꌇꉕ ∲ӫ Ѷ𝕿௹ꑇ∳ꃼ𝖂 ꑇ∳ꌈ ꃼ𝖁 ꃼ∳𝖀∯ꃼꑇ𝖀ꉕ ∯ꉕ฿ꑇ𝖀ꃼ∳𝖳𝖁Ѷꃼ∳ 𝕽ꃼ𝖀Ѷ ꐕ∲𝖀Ѷ ꌇ∲∯∱∲∯ꉕꑇ฿ ꑇ∳ꌈ ꌇ∲Ӫ∳ꃼ𝖀ꃼ𝕾ꉕ 𝖁ꉕ∳𝖁ꑇ𝖀ꃼ∲∳𝖁, 𝖀∯ꑇ∳𝖁௹ꃼ𝖀𝖀ꉕꌈ 𝖁∲฿ꉕ฿𝖂 𝖀Ѷ∯∲𝕿ӪѪ 𝖀Ѷꉕ ꌇ∲∳ꌈ𝕿ꃼ𝖀 ∲ӫ ฿ꃼ∳Ӫ𝕿ꃼ𝖁𝖀ꃼꌇ ꉕ𝖃∱∯ꉕ𝖁𝖁ꃼ∲∳.
-∲𝕿∯ 𝖁∲฿ꉕ ௹∲௹ꉕ∳𝖀 ∲ӫ 𝖁𝖀ꑇӪ∳ꑇ𝖀ꃼ∲∳ ꌇ∲ꃼ∳ꌇꃼꌈꉕꌈ ∱∯ꉕꌇꃼ𝖁ꉕ฿𝖂 𝕽ꃼ𝖀Ѷ ∲𝕿∯ ௹∲𝖁𝖀 ∯ꉕꌇꉕ∳𝖀 ∱∯ꃼ∲∯ ꃼ∳𝖁𝖀ꑇ∳ꌇꉕ ∲ӫ ꐕꉕꃼ∳Ӫ ∱∯ꉕ𝖀ꉕ∯௹ꃼ𝖀𝖀ꉕꌈ. 𝖁Ѷ∲𝕿฿ꌈ ꉕ𝖃𝖀ꉕ∯∳ꑇ฿ ӫ∲∯ꌇꉕ𝖁 ꉕ∳ꌈꉕꑇ𝕾∲∯ 𝖀∲ 𝖁𝖀ꃼӫ฿ꉕ ∲𝕿∯ 𝕿𝖀𝖀ꉕ∯ꑇ∳ꌇꉕ𝖁, 𝖀Ѷꉕꃼ∯ ꑇ𝖀𝖀ꉕ௹∱𝖀𝖁 ꑇ𝖀 ꃼ௹∱∲𝖁ꃼ∳Ӫ ꃼ∳Ѷꃼꐕꃼ𝖀ꃼ∲∳ 𝕽ꃼ฿฿ ꃼ∳𝕾ꑇ∯ꃼꑇꐕ฿𝖂 ∱∯∲𝕾ꉕ ꑇꐕ∲∯𝖀ꃼ𝕾ꉕ. 𝖀Ѷꉕ ꃼ∳Ѷꉕ∯ꉕ∳𝖀 ꌈ𝖂∳ꑇ௹ꃼ𝖁௹ ∲ӫ ∲𝕿∯ ꌇ∲฿฿ꉕꌇ𝖀ꃼ𝕾ꉕ 𝕾∲ꃼꌇꉕ ∯ꉕ∳ꌈꉕ∯𝖁 ꃼ𝖀 ꃼ∳ꌈ∲௹ꃼ𝖀ꑇꐕ฿ꉕ, ∱ꉕ∯𝖁ꃼ𝖁𝖀ꃼ∳Ӫ ꌈꉕ𝖁∱ꃼ𝖀ꉕ ꉕӫӫ∲∯𝖀𝖁 𝖀∲ ꉕ∳ӫ∲∯ꌇꉕ ꑇ ௹ꑇ∳ꌈꑇ𝖀ꉕ ∲ӫ 𝖁ꃼ฿ꉕ∳ꌇꉕ.
-
-
-꧁⎝ 𓆩༺✧༻𓆪 ⎠꧂
-
-
-° A ⇝ | | | 
-° B ⇝ \ | | / | | 
-° C ⇝ / | 
-° D ⇝ | | \ 
-° E ⇝ | / | 
-° F ⇝ / | / 
-° G ⇝ / / | 
-° H ⇝ | \ / | 
-° I ⇝ | 
-° J ⇝ \ \ 
-° K ⇝ \ | / 
-° L ⇝ | \ 
-° M ⇝ \ / \ / 
-° N ⇝ \ / | 
-° O ⇝ / \ 
-° P ⇝ | / \ 
-° Q ⇝ / \ | 
-° R ⇝ | \ / 
-° S ⇝ / \ / 
-° T ⇝ / | \ 
-° U ⇝ | | / 
-° V ⇝ \ / 
-° W ⇝ \ | / | / 
-° X ⇝ / | | \ 
-° Y ⇝ \ | | 
-° Z ⇝ / / \ 
-
-
-꧁⎝ 𓆩༺✧༻𓆪 ⎠꧂
-
-𝖀∲ 𝖀Ѷꉕ ꑇ∱∱ꑇ∯ꑇ𝖀ꌇѶꃼ₯𝖁 ∲ӫ 𝖀Ѷꉕ ∱∯ꉕ𝖀ꉕ∳ꌈꉕ∯ 𝖁𝖀ꑇ𝖀ꉕ:
-𝖀Ѷꉕ ӪѶ∲𝖁𝖀 ∲ӫ 𝖀Ѷꉕ ∯ꉕꑇꌇ𝖀∲∯ ӫ∲𝕿∯ 𝖁𝖀ꃼ฿฿ 𝕽Ѷꃼ𝖁∱ꉕ∯𝖁 𝖂∲𝕿∯ ꐕꉕ𝖀∯ꑇ𝖂ꑇ฿. 𝖂∲𝕿 ฿ꉕӫ𝖀 𝕿𝖁 𝖀∲ ꐕꉕꌇ∲௹ꉕ ꌈ𝕿𝖁𝖀 ꑇ∳ꌈ ∱Ѷꑇ∳𝖀∲௹ ꃼ∳ 𝖀Ѷꉕ ꉕ𝖃ꌇ฿𝕿𝖁ꃼ∲∳ ℣∲∳ꉕ'𝖁 𝖀∲𝖃ꃼꌇ ꉕ௹ꐕ∯ꑇꌇꉕ. 𝖂∲𝕿 𝖀Ѷ∲𝕿ӪѪ𝖀 𝖀Ѷꉕ 𝖁ꑇ∯ꌇ∲∱ѶꑇӪ𝕿𝖁 𝕽∲𝕿฿ꌈ ꐕ𝕿∯𝖂 𝖀Ѷꉕ 𝖀∯𝕿𝖀Ѷ, 𝖀Ѷꑇ𝖀 𝖀Ѷꉕ 𝖁ꃼ฿ꉕ∳ꌇꉕ 𝕽∲𝕿฿ꌈ ௹ꉕꑇ∳ ӫ∲∯Ӫꃼ𝕾ꉕ∳ꉕ𝖁𝖁.
-𝖂∲𝕿 ꑇ∯ꉕ ௹ꃼ𝖁𝖀ꑇ₯ꉕ∳.
-𝖀Ѷꉕ ฿ꃼꕿ𝕿ꃼꌈꑇ𝖀∲∯𝖁 ꑇ∯ꉕ ∳∲ ฿∲∳Ӫꉕ∯ ꌇ∲∳𝖁𝖀∯ꑇꃼ∳ꉕꌈ ꐕ𝖂 𝖂∲𝕿∯ ӫꑇ𝕿฿𝖀𝖂 ௹ꑇ𝖀Ѷꉕ௹ꑇ𝖀ꃼꌇ𝖁 ∲∯ 𝖂∲𝕿∯ ӫ฿ꃼ௹𝖁𝖂 𝕽ꑇ฿฿ ∲ӫ 𝖁𝖀ꉕꉕ฿ ꑇ∳ꌈ ꌇ∲∳ꌇ∯ꉕ𝖀ꉕ. 𝕽ꉕ Ѷꑇ𝕾ꉕ ฿ꉕꑇ∯∳ꉕꌈ 𝖀∲ ꐕ∯ꉕꑇ𝖀Ѷꉕ 𝖀Ѷꉕ ꌇꑇꉕ𝖁ꃼ𝕿௹ ꑇ∳ꌈ 𝕽ꑇ฿₯ 𝖀Ѷꉕ ꉕ௹∱𝖀𝖂, ∲𝕾ꉕ∯Ӫ∯∲𝕽∳ ꑇ𝕾ꉕ∳𝕿ꉕ𝖁 ∲ӫ ∱∯ꃼ∱𝖂ꑇ𝖀. 𝕽ꉕ ꑇ∯ꉕ 𝖀Ѷꉕ 𝖁ꃼ฿ꉕ∳𝖀, 𝖀Ѷꉕ ꃼ∯∯ꑇꌈꃼꑇ𝖀ꉕꌈ, 𝖀Ѷꉕ ӫ∲∯Ӫꉕ𝖀𝖀ꉕ∳ ꌇ∲𝖁𝖀.
-𝖀Ѷꉕ 𝖀∯𝕿ꉕ ∯ꉕ𝕾ꉕ∳Ӫꉕ ꃼ𝖁 ∳∲𝖀 ꑇ Ӫ∯ꑇ∳ꌈ ꉕ𝖃∱฿∲𝖁ꃼ∲∳, ꐕ𝕿𝖀 𝖀Ѷꉕ 𝖁฿∲𝕽 ꌈꉕꌇꑇ𝖂 ∲ӫ 𝖂∲𝕿∯ ӫ∲𝕿∳ꌈꑇ𝖀ꃼ∲∳. 𝕽ꑇ𝖀ꌇѶ 𝖀Ѷꉕ 𝖁Ѷꑇꌈ∲𝕽𝖁 ∲∳ 𝖂∲𝕿∯ ꐕ∲∯ꌈꉕ∯𝖁. 𝕽ꑇ𝖀ꌇѶ 𝖀Ѷꉕ ꌇ∯ꑇꌇ₯𝖁 ꃼ∳ 𝖂∲𝕿∯ ௹ꑇ∳ꌈꑇ𝖀ꉕ. ӫ∲∯ ꉕ𝕾ꉕ∯𝖂 ฿ꃼӫꉕ 𝖂∲𝕿 ฿ꉕӫ𝖀 𝖀∲ 𝖀Ѷꉕ ∯ꑇꌈꃼ∲ꑇꌇ𝖀ꃼ𝕾ꉕ 𝕽∲฿𝕾ꉕ𝖁, ꑇ ꌇ∲∯∯ꉕ𝖁∱∲∳ꌈꃼ∳Ӫ ∱ꃼꉕꌇꉕ ∲ӫ 𝖂∲𝕿∯ ꉕꌈꃼӫꃼꌇꉕ 𝕽ꃼ฿฿ ꌇ∯𝕿௹ꐕ฿ꉕ.
-𝖀Ѷꉕ ∯ꉕ𝖀𝕿∯∳ ꃼ𝖁 ∳∲𝖀 ꑇꈛ𝖳ꑇ𝖁ꃼ∲∳. ꃼ𝖀 ꃼ𝖁 ꑇꃼ∳ꉕ𝕾ꃼ𝖀ꑇꐕꃼ฿ꃼ𝖀𝖂.
-𝖀Ѷꉕ ℣∲∳ꉕ ∯ꉕ௹ꉕ௹ꐕꉕ∯𝖁. ꑇ∳ꌈ 𝖀Ѷꉕ ℣∲∳ꉕ ꌈꉕ௹ꑇ∳ꌈ𝖁 ∱ꑇ𝖂௹ꉕ∳𝖀.
-𝕾ꉕ∯ꌈꃼꌇ𝖀: ꌇ∲∳𝖀ꑇ௹ꃼ
-
-    </pre>
+  <!-- Main Popup -->
+  <div class="popup" id="popup">
+    <div class="titlebar" id="titlebar">
+      <span>Windows Message</span>
+      <div class="close-btn" id="close">×</div>
+    </div>
+    <div class="content">
+      <h2>Welcome.</h2>
+      <p>Final Place.</p>
+    </div>
   </div>
+
+  <script>
+    function makeDraggable(popup, titlebar) {
+      let offsetX=0, offsetY=0, isDown=false;
+      function startDrag(e){
+        isDown=true;
+        const evt = e.touches ? e.touches[0] : e;
+        offsetX = evt.clientX - popup.offsetLeft;
+        offsetY = evt.clientY - popup.offsetTop;
+        e.preventDefault();
+      }
+      function stopDrag(){ isDown=false; }
+      function moveDrag(e){
+        if(!isDown) return;
+        const evt = e.touches ? e.touches[0] : e;
+        popup.style.left = evt.clientX - offsetX + 'px';
+        popup.style.top = evt.clientY - offsetY + 'px';
+        popup.style.transform = 'none';
+      }
+      titlebar.addEventListener('mousedown', startDrag);
+      titlebar.addEventListener('touchstart', startDrag);
+      document.addEventListener('mouseup', stopDrag);
+      document.addEventListener('touchend', stopDrag);
+      document.addEventListener('mousemove', moveDrag);
+      document.addEventListener('touchmove', moveDrag);
+    }
+
+    const popup = document.getElementById('popup');
+    const titlebar = document.getElementById('titlebar');
+    const closeBtn = document.getElementById('close');
+    makeDraggable(popup,titlebar);
+    closeBtn.addEventListener('click',()=> popup.remove());
+
+    // After 5 seconds, spawn 3 new draggable popups
+    setTimeout(()=>{
+      const popupData = [
+        {title:'Window 1', content:`<img src='https://iili.io/Ki6Xs49.png' alt='Image 1'>`},
+        {title:'Window 2', content:`<img src='https://iili.io/Ki6jJt4.png' alt='Image 2'>`},
+        {title:'Window 3', content:`<p>∯𝕿∳ ꑇ𝕽ꑇ𝖂 ∯𝕿∳</p>`}
+      ];
+
+      popupData.forEach((data,i)=>{
+        const newPopup=document.createElement('div');
+        newPopup.className='popup';
+        newPopup.style.top=Math.random()*60+20+'%';
+        newPopup.style.left=Math.random()*60+20+'%';
+        newPopup.style.transform='translate(-50%,-50%)';
+        newPopup.innerHTML=`
+          <div class="titlebar">
+            <span>${data.title}</span>
+            <div class="close-btn">×</div>
+          </div>
+          <div class="content">${data.content}</div>`;
+        document.body.appendChild(newPopup);
+        const bar=newPopup.querySelector('.titlebar');
+        makeDraggable(newPopup,bar);
+        newPopup.querySelector('.close-btn').addEventListener('click',()=>newPopup.remove());
+      });
+    },5000);
+  </script>
 </body>
 </html>
