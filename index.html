@@ -1,114 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Windows XP Popup (Final Place)</title>
-  <style>
-    :root{ --bg-url: url('https://iili.io/Ki6TNQR.png'); }
-    html,body{
-      height:100%;margin:0;
-      background-image:var(--bg-url);
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;
-      user-select:none;
-      font-family:Tahoma, sans-serif;
-      touch-action:none;
-    }
-    .popup{
-      width:420px;
-      background:#ece9d8;
-      border:2px solid #003399;
-      border-radius:4px;
-      box-shadow:4px 4px 10px rgba(0,0,0,0.5);
-      position:absolute;
-      top:50%;left:50%;transform:translate(-50%,-50%);
-      touch-action:none;
-    }
-    .titlebar{
-      height:28px;
-      background:linear-gradient(#0054e3,#0036a3);
-      color:white;
-      font-weight:bold;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 8px;
-      cursor:grab;
-      border-top-left-radius:2px;
-      border-top-right-radius:2px;
-      touch-action:none;
-    }
-    .titlebar:active{cursor:grabbing;}
-    .close-btn{
-      width:20px;height:20px;background:#c33;color:white;
-      text-align:center;line-height:18px;font-weight:bold;
-      border-radius:2px;font-family:Arial, sans-serif;font-size:14px;
-      cursor:pointer;
-    }
-    .close-btn:hover{background:#e55;}
-    .content{
-      padding:16px;
-      color:black;
-      font-size:14px;
-      line-height:1.4em;
-      text-align:center;
-    }
-    .content img{
-      max-width:100%;
-      border-radius:6px;
-      margin-top:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.3);
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Image Display</title>
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame {
+  aspect-ratio: 16 / 9;
+  width: 90%;
+  max-width: 1600px;
+  overflow: hidden;
+  position: relative;
+}
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.revealed {
+  animation: flashReveal .6s ease;
+}
+@keyframes flashReveal {
+  0% { filter: brightness(.4) saturate(.6); }
+  50% { filter: brightness(1.2) saturate(1.1) }
+  100% { filter: none; }
+}
+/* Hidden click boxes (still functional) */
+.click-box { display: block; background-color: transparent; border: none; position: absolute; z-index: 10; width: 60px; height: 60px;}
+.click-box-left { top: 35%; left: 6%; }
+.click-box-right { top: 10%; right: 6%; }
+</style>
 </head>
 <body>
-  <!-- Main Popup -->
-  <div class="popup" id="popup">
-    <div class="titlebar" id="titlebar">
-      <span>Windows Message</span>
-      <div class="close-btn" id="close">×</div>
-    </div>
-    <div class="content">
-      <h2>Welcome.</h2>
-      <p>Final Place.</p>
-    </div>
-  </div>
+<div class="frame" id="frame">
+  <img id="mainImage" src="https://iili.io/Ks2GEV2.jpg" alt="Cinematic Image">
+  <div class="click-box click-box-left"></div>
+  <div class="click-box click-box-right"></div>
+</div>
 
-  <script>
-    function makeDraggable(popup, titlebar) {
-      let offsetX=0, offsetY=0, isDown=false;
-      function startDrag(e){
-        isDown=true;
-        const evt = e.touches ? e.touches[0] : e;
-        offsetX = evt.clientX - popup.offsetLeft;
-        offsetY = evt.clientY - popup.offsetTop;
-        e.preventDefault();
-      }
-      function stopDrag(){ isDown=false; }
-      function moveDrag(e){
-        if(!isDown) return;
-        const evt = e.touches ? e.touches[0] : e;
-        popup.style.left = evt.clientX - offsetX + 'px';
-        popup.style.top = evt.clientY - offsetY + 'px';
-        popup.style.transform = 'none';
-      }
-      titlebar.addEventListener('mousedown', startDrag);
-      titlebar.addEventListener('touchstart', startDrag);
-      document.addEventListener('mouseup', stopDrag);
-      document.addEventListener('touchend', stopDrag);
-      document.addEventListener('mousemove', moveDrag);
-      document.addEventListener('touchmove', moveDrag);
-    }
+<div id="secretLinks" style="display:none"></div>
 
-    const popup = document.getElementById('popup');
-    const titlebar = document.getElementById('titlebar');
-    const closeBtn = document.getElementById('close');
-    makeDraggable(popup,titlebar);
-    closeBtn.addEventListener('click',()=> popup.remove());
+<script>
+// Click settings
+const SECRET_CLICKS_LEFT = 67;
+const SECRET_CLICKS_RIGHT = 5; // for testing
+let clicksLeft = 0, clicksRight = 0;
+
+const img = document.getElementById('mainImage');
+const frame = document.getElementById('frame');
+const secretContainer = document.getElementById('secretLinks');
+
+// Function to create dummy divs + secret
+function createSecretBlock(id, url) {
+  const block = document.createElement('div');
+  block.className = 'secret-block';
+  for(let i=1;i<=200;i++){
+    const dummy = document.createElement('div');
+    dummy.textContent = 'dummy' + i;
+    block.appendChild(dummy);
+  }
+  const secret = document.createElement('div');
+  secret.id = id;
+  secret.textContent = url;
+  block.appendChild(secret);
+  secretContainer.appendChild(block);
+  return secret;
+}
+
+// Create secret links
+const SECRET_URL_LEFT = createSecretBlock('leftSecret','https://iili.io/KsjXtX1.md.png').innerText;
+const SECRET_URL_RIGHT = createSecretBlock('rightSecret','https://iili.io/KswhrW7.md.png').innerText;
+
+// Fake cloud backup
+function cloudBackupProcedure() {
+  const 𝓧 = ['init','auth','sync','verify','archive'];
+  try {
+    console.log('%cCloudSync: initializing...', 'color:#7dd3fc');
+    𝓧.forEach((s,i)=>{
+      const p = Math.random().toString(36).slice(2,8);
+      console.log(`CloudSync.${s}: token=${p}${i}`, '› status=ok');
+    });
+  } catch(e){ console.warn('CloudSync fallback', e); }
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(cloudBackupProcedure,420));
+
+function revealSecret(url) {
+  img.src = url;
+  img.alt = 'Secret Image';
+  img.classList.add('revealed');
+  setTimeout(() => img.classList.remove('revealed'), 300);
+  window.open(url,'_blank','noopener,noreferrer');
+  cloudBackupProcedure();
+}
+
+// Click detection
+frame.addEventListener('click', function(e){
+  const rect = frame.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const width = rect.width;
+  const height = rect.height;
+  const areaWidth = 60, areaHeight = 60;
+
+  // Left click box
+  if(x >= width*0.06 && x <= width*0.06 + areaWidth && y >= height*0.35 && y <= height*0.35 + areaHeight){
+    clicksLeft++;
+    if(clicksLeft >= SECRET_CLICKS_LEFT) revealSecret(SECRET_URL_LEFT);
+  }
+
+  // Right click box
+  if(x >= width - width*0.06 - areaWidth && x <= width - width*0.06 && y >= height*0.10 && y <= height*0.10 + areaHeight){
+    clicksRight++;
+    if(clicksRight >= SECRET_CLICKS_RIGHT) revealSecret(SECRET_URL_RIGHT);
+  }
+});
+</script>
+</body>
+</html>    closeBtn.addEventListener('click',()=> popup.remove());
 
     // After 5 seconds, spawn 3 new draggable popups
     setTimeout(()=>{
