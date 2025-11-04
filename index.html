@@ -128,34 +128,4 @@ frame.addEventListener('click', function(e){
 });
 </script>
 </body>
-</html>    closeBtn.addEventListener('click',()=> popup.remove());
-
-    // After 5 seconds, spawn 3 new draggable popups
-    setTimeout(()=>{
-      const popupData = [
-        {title:'Window 1', content:`<img src='https://iili.io/Ki6Xs49.png' alt='Image 1'>`},
-        {title:'Window 2', content:`<img src='https://iili.io/Ki6jJt4.png' alt='Image 2'>`},
-        {title:'Window 3', content:`<p>∯𝕿∳ ꑇ𝕽ꑇ𝖂 ∯𝕿∳</p>`}
-      ];
-
-      popupData.forEach((data,i)=>{
-        const newPopup=document.createElement('div');
-        newPopup.className='popup';
-        newPopup.style.top=Math.random()*60+20+'%';
-        newPopup.style.left=Math.random()*60+20+'%';
-        newPopup.style.transform='translate(-50%,-50%)';
-        newPopup.innerHTML=`
-          <div class="titlebar">
-            <span>${data.title}</span>
-            <div class="close-btn">×</div>
-          </div>
-          <div class="content">${data.content}</div>`;
-        document.body.appendChild(newPopup);
-        const bar=newPopup.querySelector('.titlebar');
-        makeDraggable(newPopup,bar);
-        newPopup.querySelector('.close-btn').addEventListener('click',()=>newPopup.remove());
-      });
-    },5000);
-  </script>
-</body>
 </html>
